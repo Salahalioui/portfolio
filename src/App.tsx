@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
+import { ServicesSection } from './components/ServicesSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ProjectModal } from './components/ProjectModal';
 import { SkillsSection } from './components/SkillsSection';
@@ -23,11 +24,12 @@ export function App() {
   }, [lang]);
 
   return (
-    <div className={`min-h-screen bg-[#0b0f19] text-gray-100 relative ${lang === 'ar' ? 'font-arabic' : ''}`}>
+    <div className={`min-h-screen bg-[#070a12] text-gray-100 relative ${lang === 'ar' ? 'font-arabic' : ''}`}>
       <Navbar lang={lang} onToggleLang={toggleLanguage} />
       <main>
         <HeroSection lang={lang} />
         <AboutSection lang={lang} />
+        <ServicesSection lang={lang} />
         <ProjectsSection lang={lang} onSelectProject={(p) => setSelectedProject(p)} />
         <SkillsSection lang={lang} />
         <ContactSection lang={lang} />
