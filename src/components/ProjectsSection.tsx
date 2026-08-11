@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { PROJECTS, type Project } from '../data/projects';
 import { ArrowUpRight, Code } from 'lucide-react';
+import { TRANSLATIONS, type Language } from '../data/translations';
 
 interface ProjectsSectionProps {
+  lang: Language;
   onSelectProject: (project: Project) => void;
 }
 
-export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProject }) => {
+export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lang, onSelectProject }) => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
+  const t = TRANSLATIONS[lang].projects;
 
   const filteredProjects = PROJECTS.filter((p) => {
     if (activeFilter === 'all') return true;
@@ -19,13 +22,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            Featured Software & Research Works
+            {t.badge}
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Selected Applications & Desktop Suites
+            {t.title}
           </h2>
           <p className="text-gray-400 mt-4 text-base">
-            Click on any project card to inspect system architecture, engineering metrics, and full feature breakdowns.
+            {t.subtitle}
           </p>
         </div>
 
@@ -38,7 +41,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                 : 'glass-card text-gray-400 hover:text-white'
             }`}
           >
-            All Works ({PROJECTS.length})
+            {t.all} ({PROJECTS.length})
           </button>
 
           <button
@@ -49,7 +52,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                 : 'glass-card text-gray-400 hover:text-white'
             }`}
           >
-            Sports Science & Analytics
+            {t.sportsTech}
           </button>
 
           <button
@@ -60,7 +63,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                 : 'glass-card text-gray-400 hover:text-white'
             }`}
           >
-            AI & Computer Vision
+            {t.aiVision}
           </button>
 
           <button
@@ -71,7 +74,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                 : 'glass-card text-gray-400 hover:text-white'
             }`}
           >
-            Full-Stack / Client Work
+            {t.fullStack}
           </button>
 
           <button
@@ -82,7 +85,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                 : 'glass-card text-gray-400 hover:text-white'
             }`}
           >
-            Research Tooling
+            {t.research}
           </button>
         </div>
 
@@ -99,7 +102,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                     {project.categoryLabel}
                   </span>
                   <div className="p-2 rounded-xl bg-slate-800/80 text-gray-400 group-hover:text-emerald-400 group-hover:bg-slate-700 transition-colors">
-                    <ArrowUpRight className="w-4 h-4" />
+                    <ArrowUpRight className="w-4 h-4 rtl:rotate-90" />
                   </div>
                 </div>
 
@@ -133,8 +136,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                 </div>
 
                 <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                    Inspect Architecture & Metrics →
+                  <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">
+                    {t.inspect}
                   </span>
                   <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
                     <a

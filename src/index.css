@@ -14,6 +14,14 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
+
+  html[dir="rtl"] body {
+    font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+.font-arabic {
+  font-family: 'Cairo', system-ui, sans-serif;
 }
 
 .glass-panel {

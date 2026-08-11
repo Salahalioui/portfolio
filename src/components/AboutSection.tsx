@@ -1,19 +1,26 @@
 import React from 'react';
 import { Award, Zap, Brain, Layers, CheckCircle2 } from 'lucide-react';
+import { TRANSLATIONS, type Language } from '../data/translations';
 
-export const AboutSection: React.FC = () => {
+interface AboutSectionProps {
+  lang: Language;
+}
+
+export const AboutSection: React.FC<AboutSectionProps> = ({ lang }) => {
+  const t = TRANSLATIONS[lang].about;
+
   return (
     <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            Dual Discipline Excellence
+            {t.badge}
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Where Empirical Research Meets High-Performance Software
+            {t.title}
           </h2>
           <p className="text-gray-400 mt-4 text-base leading-relaxed">
-            My background as a PhD researcher in physical education and sports performance allows me to solve complex real-world domain problems through software — from local-first Rust desktop tools to AI computer vision.
+            {t.subtitle}
           </p>
         </div>
 
@@ -24,30 +31,30 @@ export const AboutSection: React.FC = () => {
             </div>
 
             <h3 className="text-2xl font-bold text-white mb-3">
-              Sports Performance & Talent Identification
+              {t.sportsTitle}
             </h3>
             
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              Conducting PhD thesis research focused on volleyball match analytics, rotation side-out metrics, and physical test evaluation frameworks across Algerian sports federations.
+              {t.sportsDesc}
             </p>
 
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-3 text-sm text-gray-300">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <span><strong>Volleyball Intelligence:</strong> FIVB-compliant match coding, rolling momentum graphs, and rotation heatmaps.</span>
+                <span>{t.sportsPoint1}</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-300">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <span><strong>Talent Scout Systems:</strong> Offline-first PWA tools for physical test evaluation in Football & Athletics.</span>
+                <span>{t.sportsPoint2}</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-300">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <span><strong>PE Inspector Oversight:</strong> Multi-tier portals for lesson plan tracking and field inspection management.</span>
+                <span>{t.sportsPoint3}</span>
               </li>
             </ul>
 
             <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-emerald-400 font-semibold">
-              <span>Primary Flagship: VolleyLens & Ikhtiyar-DZ</span>
+              <span>{t.sportsFlagship}</span>
               <Zap className="w-4 h-4" />
             </div>
           </div>
@@ -58,30 +65,30 @@ export const AboutSection: React.FC = () => {
             </div>
 
             <h3 className="text-2xl font-bold text-white mb-3">
-              Multimodal AI & Computer Vision Engineering
+              {t.aiTitle}
             </h3>
 
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              Building next-generation generative AI tools using Google Gemini 2.5/3.5, OpenRouter APIs, and custom prompt engineering for image transformations and academic synthesis.
+              {t.aiDesc}
             </p>
 
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-3 text-sm text-gray-300">
                 <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-                <span><strong>AI Virtual Styling:</strong> Photorealistic clothing try-on, outfit extraction, and background replacer (StyleAI).</span>
+                <span>{t.aiPoint1}</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-300">
                 <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-                <span><strong>Bilingual Academic AI:</strong> Live AI text completion, academic rephrasing shortcuts, and citation lookups.</span>
+                <span>{t.aiPoint2}</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-300">
                 <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-                <span><strong>ASJP Synthesizer:</strong> Automated scientific paper querying, PDF metadata extraction, and PRISMA reports.</span>
+                <span>{t.aiPoint3}</span>
               </li>
             </ul>
 
             <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-cyan-400 font-semibold">
-              <span>Primary Flagship: StyleAI & Academic AI Assistant</span>
+              <span>{t.aiFlagship}</span>
               <Layers className="w-4 h-4" />
             </div>
           </div>

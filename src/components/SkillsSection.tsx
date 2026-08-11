@@ -1,20 +1,27 @@
 import React from 'react';
 import { SKILL_CATEGORIES } from '../data/projects';
 import { Terminal, Cpu, Database, Layout, Sparkles } from 'lucide-react';
+import { TRANSLATIONS, type Language } from '../data/translations';
 
-export const SkillsSection: React.FC = () => {
+interface SkillsSectionProps {
+  lang: Language;
+}
+
+export const SkillsSection: React.FC<SkillsSectionProps> = ({ lang }) => {
+  const t = TRANSLATIONS[lang].skills;
+
   return (
     <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            Technical Matrix & Specializations
+            {t.badge}
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Engineering Toolset & Research Stack
+            {t.title}
           </h2>
           <p className="text-gray-400 mt-4 text-base">
-            From zero-latency Rust desktop applications to cloud-native multimodal AI pipelines.
+            {t.subtitle}
           </p>
         </div>
 
