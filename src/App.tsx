@@ -36,6 +36,7 @@ export function App() {
       </main>
       <ProjectModal 
         project={selectedProject} 
+        lang={lang}
         onClose={() => setSelectedProject(null)} 
       />
     </div>
